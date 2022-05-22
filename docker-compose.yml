@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: devops-test
+    container_name: devops-test-app
+    restart: unless-stopped
+    ports:
+      - '49120:3000'
+    volumes:
+      - ./:/devops-test
+
