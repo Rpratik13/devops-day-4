@@ -1,11 +1,11 @@
 FROM node:16
 
-WORKDIR /devops-test
+WORKDIR /devops-day-4
 
-COPY package.json /devops-test/package.json
+COPY package.json /devops-day-4/package.json
 
 RUN npm install
 
-COPY . /devops-test
+COPY . /devops-day-4
 
 CMD ["npm", "start"]
