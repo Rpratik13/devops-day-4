@@ -1,0 +1,25 @@
+version: 2
+general:
+  branches:
+    only:
+      - main
+jobs:
+  build:
+    docker:
+      - image: devops-test/latest
+    steps:
+      - checkout
+      - run:
+          name: Deploy
+          command: |
+            ssh -o StrictHostKeyChecking=no ubuntu@184.73.44.254 \
+            "echo Start deploy && \
+            cd ~/devops-day-4 && \
+            git pull origin main && \
+            sudo docker compose up --build -d && \
+            echo Deploy end"
+workflows:
+  version: 2
+  deploy_ec2:
+    jobs:
+      - build
