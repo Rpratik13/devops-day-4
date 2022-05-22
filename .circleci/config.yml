@@ -6,7 +6,7 @@ general:
 jobs:
   build:
     docker:
-      - image: devops-test/latest
+      - image: circleci/openjdk:8-jdk
     steps:
       - checkout
       - run:
